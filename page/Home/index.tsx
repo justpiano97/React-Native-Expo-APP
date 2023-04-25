@@ -15,8 +15,14 @@ const Home: React.FC<Props> = ({ navigation }) => {
       </View>
       <Text style={styles.text}>Find Shift work to suit your lifestyle</Text>
       <View style={styles.buttonGroup}>
-        <Button onPress={() => navigation.navigate(pageNameInfo.Main.ShiftSeeker)}>Login as a Shiftseeker</Button>
-        <Button onPress={() => navigation.navigate(pageNameInfo.Main.Employer)} addStyles={{ marginTop: 10 }}>
+        <Button buttonSize="large" onPress={() => navigation.navigate(pageNameInfo.Main.ShiftSeeker)}>
+          Login as a Shiftseeker
+        </Button>
+        <Button
+          buttonSize="large"
+          onPress={() => navigation.navigate(pageNameInfo.Main.Employer)}
+          addStyles={{ marginTop: 10 }}
+        >
           Login as a Employer
         </Button>
       </View>

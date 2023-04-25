@@ -1,8 +1,25 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { TextInput, StyleSheet } from 'react-native';
 
-const Input: React.FC = () => {
-  return <Text>Input</Text>;
+type Props = {
+  placeholder?: string;
 };
+
+const Input: React.FC<Props> = ({ placeholder }) => {
+  return <TextInput style={styles.input} placeholder={placeholder} />;
+};
+
+const styles = StyleSheet.create({
+  input: {
+    backgroundColor: 'white',
+    fontSize: 18,
+    borderStyle: 'solid',
+    borderWidth: 3,
+    borderColor: '#ff85ff',
+    borderRadius: 8,
+    textAlign: 'center',
+    paddingVertical: 8,
+  },
+});
 
 export default Input;

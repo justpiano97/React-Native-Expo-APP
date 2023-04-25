@@ -13,8 +13,8 @@ const Header: React.FC = () => {
         },
       ]}
     >
-      <Image source={require('../../assets/logo.png')} style={{ width: 150, height: 70 }} />
-      <Text>Header</Text>
+      <Image source={require('../../assets/logo.png')} style={{ width: 130, height: 60 }} />
+      <Text style={{ color: 'white' }}>Hamburger</Text>
     </View>
   );
 };
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
