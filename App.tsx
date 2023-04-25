@@ -1,12 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { Router, Scene } from 'react-native-router-flux';
+import {StatusBar} from 'expo-status-bar';
+import {StyleSheet, View} from 'react-native';
+import {Router, Scene} from 'react-native-router-flux';
 import Home from './page/Home';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Home/>
+      <Home />
     </View>
   );
 }
