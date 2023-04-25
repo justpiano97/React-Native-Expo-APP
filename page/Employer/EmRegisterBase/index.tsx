@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useForm } from 'react-hook-form';
 
 import Input from '../../../components/_ui/Input';
 import Button from '../../../components/_ui/Button';
 import { employerRegisterList } from '../../../utils/constants/employer';
 
 const EmployerRegisterBase: React.FC = () => {
+  const { control } = useForm();
   return (
     <View style={{ flex: 1, backgroundColor: '#3f3f3f' }}>
       <Text style={styles.title}>Employer Registration</Text>
@@ -19,9 +21,9 @@ const EmployerRegisterBase: React.FC = () => {
         }}
       >
         <View style={styles.inputWrapper}>
-          <Input placeholder="Choose Your Sector" />
+          <Input placeholder="Choose Your Sector" control={control} name="sector" />
           {employerRegisterList?.map((item) => (
-            <Input key={item?.label} placeholder={item.label} />
+            <Input key={item?.label} placeholder={item.label} name={item.name} control={control} />
           ))}
         </View>
         <Button>Continue</Button>
