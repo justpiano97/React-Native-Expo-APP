@@ -10,16 +10,7 @@ const Home: React.FC = () => {
 
   return (
     <View style={styles.wrapper}>
-      <View
-        style={{
-          width: '100%',
-          height: 250,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        {/* <Text style={styles.text}>LOGO</Text> */}
+      <View style={styles.logoWrapper}>
         <Image source={require('../../assets/logo.png')} style={{ width: '100%', height: 135 }} />
       </View>
       <Text style={styles.text}>Find Shift work to suit your lifestyle</Text>
@@ -47,6 +38,13 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     paddingHorizontal: 60,
     marginHorizontal: 'auto',
+  },
+  logoWrapper: {
+    width: '100%',
+    height: 250,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     color: 'white',

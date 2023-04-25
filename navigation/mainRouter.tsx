@@ -14,7 +14,7 @@ export type MainStackParamsList = {
   [key in string]: any;
 };
 
-const Router: React.FC = () => {
+const MainRouter: React.FC = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#3f3f3f' }}>
       <NavigationContainer>
@@ -33,4 +33,4 @@ const Router: React.FC = () => {
   );
 };
 
-export default Router;
+export default MainRouter;

@@ -3,14 +3,14 @@ import { View, Text } from 'react-native';
 
 import MainLayout from '../../../layout/MainLayout';
 
-const ShiftSeekerRegisterBase: React.FC = () => {
+const ShiftSeekerRegisterProfile: React.FC = () => {
   return (
     <MainLayout>
       <View>
-        <Text>ShiftSeekerRegisterBase</Text>
+        <Text>ShiftSeekerRegisterProfile</Text>
       </View>
     </MainLayout>
   );
 };
 
-export default ShiftSeekerRegisterBase;
+export default ShiftSeekerRegisterProfile;

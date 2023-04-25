@@ -1,11 +1,17 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { ReactNode } from 'react';
+import { View } from 'react-native';
+import Header from '../Header';
 
-const MainLayout: React.FC = () => {
+type Props = {
+  children: ReactNode;
+};
+
+const MainLayout: React.FC<Props> = ({ children }) => {
   return (
-    <View>
-      <Text>MainLayout</Text>
-    </View>
+    <>
+      <Header />
+      <View style={{ paddingHorizontal: 30 }}>{children}</View>
+    </>
   );
 };
 
