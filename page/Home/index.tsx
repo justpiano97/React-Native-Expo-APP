@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Button from '../../components/_ui/Button';
 import { useNavigation } from '@react-navigation/native';
-import { MainStackParamsList } from '../../Navigation';
+import { MainStackParamsList } from '../../navigation';
 
 const Home: React.FC = () => {
   const navigation = useNavigation<MainStackParamsList>();
