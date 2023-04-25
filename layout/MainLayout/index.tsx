@@ -8,10 +8,10 @@ type Props = {
 
 const MainLayout: React.FC<Props> = ({ children }) => {
   return (
-    <>
+    <View style={{ height: '100%' }}>
       <Header />
-      <View style={{ paddingHorizontal: 30, height: '100%', backgroundColor: '#3f3f3f' }}>{children}</View>
-    </>
+      <View style={{ paddingHorizontal: 30, flex: 1, backgroundColor: '#3f3f3f', paddingBottom: 40 }}>{children}</View>
+    </View>
   );
 };
 

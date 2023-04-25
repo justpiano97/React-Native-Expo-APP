@@ -1,6 +1,4 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import ShiftSeekerRegisterBase from '../page/Shiftseeker/ShiftRegisterBase';

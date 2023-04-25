@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     gap: 10,
-    paddingBottom: 30,
+    paddingBottom: 20,
   },
 });
 
