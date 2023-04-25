@@ -5,16 +5,12 @@ import { StyleSheet, Text } from 'react-native';
 type Props = {
   children: ReactNode;
   addStyles?: any;
+  onPress?: Function;
 };
 
-const Button: React.FC<Props> = ({ children, addStyles = {} }) => {
+const Button: React.FC<Props> = ({ children, addStyles = {}, onPress = () => {} }) => {
   return (
-    <TouchableOpacity
-      style={[styles.button, { ...addStyles }]}
-      onPress={() => {
-        console.log(123);
-      }}
-    >
+    <TouchableOpacity style={[styles.button, { ...addStyles }]} onPress={() => onPress()}>
       <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   );

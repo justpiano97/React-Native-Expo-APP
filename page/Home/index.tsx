@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Button from '../../components/_ui/Button';
+import { useNavigation } from '@react-navigation/native';
+import { MainStackParamsList } from '../../Navigation';
 
 const Home: React.FC = () => {
+  const navigation = useNavigation<MainStackParamsList>();
+
   return (
     <View style={styles.wrapper}>
       <View
@@ -19,8 +23,10 @@ const Home: React.FC = () => {
       </View>
       <Text style={styles.text}>Find Shift work to suit your lifestyle</Text>
       <View style={styles.buttonGroup}>
-        <Button>Login as a Shiftseeker</Button>
-        <Button addStyles={{ marginTop: 10 }}>Login as a Employer</Button>
+        <Button onPress={() => navigation.navigate('shiftRegisterBase')}>Login as a Shiftseeker</Button>
+        <Button onPress={() => navigation.navigate('emRegisterBase')} addStyles={{ marginTop: 10 }}>
+          Login as a Employer
+        </Button>
       </View>
     </View>
   );
