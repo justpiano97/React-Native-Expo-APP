@@ -3,9 +3,9 @@ import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import EmRegisterBase from '../page/Employer/EmRegisterBase';
 import Home from '../page/Home';
 import ShiftSeekerRegisterBase from '../page/Shiftseeker/ShiftRegisterBase';
-import EmRegisterBase from '../page/Employer/EmRegisterBase';
 import { pageNameInfo } from '../utils/constants';
 
 const MainStack = createNativeStackNavigator();
