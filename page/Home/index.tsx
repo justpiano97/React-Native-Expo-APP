@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Button from '../../components/_ui/Button';
-import { useNavigation } from '@react-navigation/native';
-import { MainStackParamsList } from '../../navigation';
 import { pageNameInfo } from '../../utils/constants';
 
 type Props = {
@@ -10,8 +8,6 @@ type Props = {
 };
 
 const Home: React.FC<Props> = ({ navigation }) => {
-  // const navigation = useNavigation<MainStackParamsList>();
-
   return (
     <View style={styles.wrapper}>
       <View style={styles.logoWrapper}>

@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const ShiftSeekerRegisterBase: React.FC = () => {
-  console.log(43242);
   return (
-    <View>
-      <Text>ShiftSeekerRegistersdfsdfBase</Text>
+    <View style={{ flex: 1, backgroundColor: '#3f3f3f' }}>
+      <Text style={styles.title}>ShiftSeekerRegistersdfsdfBase</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    color: 'white',
+  },
+});
 
 export default ShiftSeekerRegisterBase;
