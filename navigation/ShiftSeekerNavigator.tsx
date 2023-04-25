@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import ShiftSeekerRegisterBase from '../page/Shiftseeker/ShiftRegisterBase';
 import { pageNameInfo } from '../utils/constants';
-import ShiftSeekerRegisterProfile from '../page/Shiftseeker/RegisterProfile';
-import ShiftSeekerRegisterComplete from '../page/Shiftseeker/RegisterComplete';
+import ShiftSeekerRegisterProfile from '../page/Shiftseeker/ShiftRegisterProfile';
+import ShiftSeekerRegisterComplete from '../page/Shiftseeker/ShiftRegisterComplete';
 import MainLayout from '../layout/MainLayout';
 
 const ShiftStack = createNativeStackNavigator();
