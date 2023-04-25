@@ -5,8 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 import { MainStackParamsList } from '../../navigation';
 import { pageNameInfo } from '../../utils/constants';
 
-const Home: React.FC = () => {
-  const navigation = useNavigation<MainStackParamsList>();
+type Props = {
+  navigation: any;
+};
+
+const Home: React.FC<Props> = ({ navigation }) => {
+  // const navigation = useNavigation<MainStackParamsList>();
 
   return (
     <View style={styles.wrapper}>
@@ -15,13 +19,8 @@ const Home: React.FC = () => {
       </View>
       <Text style={styles.text}>Find Shift work to suit your lifestyle</Text>
       <View style={styles.buttonGroup}>
-        <Button onPress={() => navigation.navigate(pageNameInfo.ShiftSeeker.Auth.RegisterBase)}>
-          Login as a Shiftseeker
-        </Button>
-        <Button
-          onPress={() => navigation.navigate(pageNameInfo.Employer.Auth.RegisterBase)}
-          addStyles={{ marginTop: 10 }}
-        >
+        <Button onPress={() => navigation.navigate(pageNameInfo.Main.ShiftSeeker)}>Login as a Shiftseeker</Button>
+        <Button onPress={() => navigation.navigate(pageNameInfo.Main.Employer)} addStyles={{ marginTop: 10 }}>
           Login as a Employer
         </Button>
       </View>

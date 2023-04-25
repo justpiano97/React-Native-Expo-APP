@@ -3,10 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import EmRegisterBase from '../page/Employer/EmRegisterBase';
 import Home from '../page/Home';
-import ShiftSeekerRegisterBase from '../page/Shiftseeker/ShiftRegisterBase';
 import { pageNameInfo } from '../utils/constants';
+import ShiftSeekerNavigator from './ShiftSeekerNavigator';
+import EmRegisterBase from '../page/Employer/EmRegisterBase';
+import EmployerNavigator from './EmployerNavigator';
 
 const MainStack = createNativeStackNavigator();
 
@@ -19,14 +20,14 @@ const Router: React.FC = () => {
     <View style={{ flex: 1, backgroundColor: '#3f3f3f' }}>
       <NavigationContainer>
         <MainStack.Navigator
-          initialRouteName={pageNameInfo.Home}
+          initialRouteName={pageNameInfo.Main.Home}
           screenOptions={{
             headerShown: false,
           }}
         >
-          <MainStack.Screen name={pageNameInfo.Home} component={Home} />
-          <MainStack.Screen name={pageNameInfo.ShiftSeeker.Auth.RegisterBase} component={ShiftSeekerRegisterBase} />
-          <MainStack.Screen name={pageNameInfo.Employer.Auth.RegisterBase} component={EmRegisterBase} />
+          <MainStack.Screen name={pageNameInfo.Main.Home} component={Home} />
+          <MainStack.Screen name={pageNameInfo.Main.ShiftSeeker} component={ShiftSeekerNavigator} />
+          <MainStack.Screen name={pageNameInfo.Main.Employer} component={EmployerNavigator} />
         </MainStack.Navigator>
       </NavigationContainer>
     </View>
