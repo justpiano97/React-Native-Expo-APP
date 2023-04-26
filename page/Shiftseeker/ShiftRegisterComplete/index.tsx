@@ -6,18 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import Button from '../../../components/_ui/Button';
 import Select from '../../../components/_ui/Select';
-import { sectorList } from '../../../utils/constants/users';
 import { ShiftRegistrationCompleteSchema } from '../../../utils/schema';
-
-const experienceList = [
-  { label: 'Glass Collecting', name: 'glassCollecting' },
-  { label: 'Waiting Staff', name: 'waitingStaff' },
-  { label: 'Bartender', name: 'bartender' },
-  { label: 'Kitchen Staff', name: 'kitchenStaff' },
-  { label: 'Cocktail Waiter', name: 'cocktailWaiter' },
-  { label: 'Barista', name: 'barista' },
-  { label: 'No Experience', name: 'noExperience' },
-];
+import { sectorList, shiftExperienceList } from '../../../utils/constants/users';
 
 const ShiftSeekerRegisterComplete: React.FC = () => {
   const {
@@ -34,7 +24,6 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
     const checkData = Object.keys(data)?.filter((item) => data[item] === true && item !== 'noExperience');
     requestData.sector = data.sector;
     requestData.experience = checkData;
-    console.log('requestData: ', requestData);
   };
 
   useEffect(() => {
@@ -76,7 +65,7 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
       <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
         <View style={{ gap: 18, paddingTop: 20 }}>
           <Select control={control} list={sectorList} name="sector" error={errors.sector} />
-          {experienceList?.map((item) => (
+          {shiftExperienceList?.map((item) => (
             <View key={item.name} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <Controller
                 control={control}

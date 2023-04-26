@@ -30,3 +30,13 @@ export const sectorList = [
   { label: 'Nursing and Care', value: 'Nursing_and_care' },
   { label: 'Other', value: 'other' },
 ];
+
+export const shiftExperienceList = [
+  { label: 'Glass Collecting', name: 'glassCollecting' },
+  { label: 'Waiting Staff', name: 'waitingStaff' },
+  { label: 'Bartender', name: 'bartender' },
+  { label: 'Kitchen Staff', name: 'kitchenStaff' },
+  { label: 'Cocktail Waiter', name: 'cocktailWaiter' },
+  { label: 'Barista', name: 'barista' },
+  { label: 'No Experience', name: 'noExperience' },
+];
