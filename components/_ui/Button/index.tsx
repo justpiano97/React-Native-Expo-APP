@@ -6,45 +6,72 @@ type Props = {
   children: ReactNode;
   addStyles?: any;
   onPress?: Function;
-  buttonSize?: 'large' | 'medium';
+  buttonSize?: 'large' | 'medium' | 'small';
+  buttonStyles?: 'whiteButton' | 'pinkButton';
 };
 
-const Button: React.FC<Props> = ({ children, buttonSize = 'medium', addStyles = {}, onPress = () => {} }) => {
+const Button: React.FC<Props> = ({
+  children,
+  buttonSize = 'medium',
+  buttonStyles = 'pinkButton',
+  addStyles = {},
+  onPress = () => {},
+}) => {
   return (
-    <TouchableOpacity style={[styles[buttonSize], { ...addStyles }]} onPress={() => onPress()}>
-      <Text style={styles[`${buttonSize}Text`]}>{children}</Text>
+    <TouchableOpacity style={[styles[buttonSize], styles[buttonStyles], { ...addStyles }]} onPress={() => onPress()}>
+      <Text style={[styles[`${buttonSize}Text`], styles[`${buttonStyles}Text`]]}>{children}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  large: {
+  pinkButton: {
     backgroundColor: '#ff85ff',
     borderColor: 'white',
-    paddingVertical: 12,
-    borderRadius: 18,
+  },
+  whiteButton: {
+    backgroundColor: 'white',
+    borderColor: '#ff85ff',
+  },
+  small: {
+    paddingVertical: 4,
+    borderRadius: 8,
     borderStyle: 'solid',
-    borderWidth: 3,
+    borderWidth: 2,
   },
   medium: {
-    backgroundColor: '#ff85ff',
-    borderColor: 'white',
     paddingVertical: 8,
     borderRadius: 8,
     borderStyle: 'solid',
     borderWidth: 2,
     marginHorizontal: 20,
   },
-  largeText: {
+  large: {
+    paddingVertical: 12,
+    borderRadius: 18,
+    borderStyle: 'solid',
+    borderWidth: 3,
+  },
+  pinkButtonText: {
     color: 'white',
-    fontSize: 24,
+  },
+  whiteButtonText: {
+    color: '#ff85ff',
+  },
+  smallText: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingHorizontal: 42,
+    lineHeight: 24,
+  },
+  mediumText: {
+    fontSize: 18,
     textAlign: 'center',
     paddingHorizontal: 40,
     lineHeight: 32,
   },
-  mediumText: {
-    color: 'white',
-    fontSize: 18,
+  largeText: {
+    fontSize: 24,
     textAlign: 'center',
     paddingHorizontal: 40,
     lineHeight: 32,

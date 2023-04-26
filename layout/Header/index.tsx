@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import MenuBar from '../../assets/menuBar.svg';
 
 const Header: React.FC = () => {
   const insets = useSafeAreaInsets();
@@ -15,8 +14,9 @@ const Header: React.FC = () => {
       ]}
     >
       <Image source={require('../../assets/logo.png')} style={{ width: 130, height: 60 }} />
-      <Text style={{ color: 'white' }}>Hamburger</Text>
-      {/* <MenuBar /> */}
+      <TouchableOpacity>
+        <Image source={require('../../assets/images/bar.png')} style={{ width: 40, height: 40 }} />
+      </TouchableOpacity>
     </View>
   );
 };

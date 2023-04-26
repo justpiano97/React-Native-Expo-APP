@@ -1,22 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { FieldValues, useForm } from 'react-hook-form';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import Input from '../../../components/_ui/Input';
 import { shiftSeekerRegisterList } from '../../../utils/constants/shiftseeker';
 import Button from '../../../components/_ui/Button';
 import { ShiftRegistrationSchema } from '../../../utils/schema';
+import { MainStackParamsList } from '../../../navigation';
+import { pageNameInfo } from '../../../utils/constants';
 
 const ShiftSeekerRegisterBase: React.FC = () => {
+  const navigation = useNavigation<MainStackParamsList>();
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(ShiftRegistrationSchema) });
 
-  const onSubmit = (data: FieldValues) => {
-    console.log('data: ', data);
+  const onSubmit = () => {
+    navigation.navigate(pageNameInfo.Main.ShiftSeeker, { screen: pageNameInfo.ShiftSeeker.Auth.RegisterProfile });
   };
 
   return (
