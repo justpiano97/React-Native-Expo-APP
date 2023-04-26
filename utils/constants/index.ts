@@ -15,7 +15,7 @@ const ShiftSeeker = {
 const Employer = {
   Auth: {
     RegisterBase: 'Employer_Register_Base',
-    RegisterComplete: 'Employer_Register_Complete',
+    Terms: 'Terms',
   },
 };
 

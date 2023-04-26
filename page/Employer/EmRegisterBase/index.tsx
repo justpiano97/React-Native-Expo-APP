@@ -2,13 +2,18 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { FieldValues, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigation } from '@react-navigation/native';
 
 import Input from '../../../components/_ui/Input';
 import Button from '../../../components/_ui/Button';
 import { employerRegisterList } from '../../../utils/constants/employer';
 import { EmployerRegistrationSchema } from '../../../utils/schema';
+import { MainStackParamsList } from '../../../navigation';
+import { pageNameInfo } from '../../../utils/constants';
 
 const EmployerRegisterBase: React.FC = () => {
+  const navigation = useNavigation<MainStackParamsList>();
+
   const {
     control,
     handleSubmit,
@@ -16,7 +21,7 @@ const EmployerRegisterBase: React.FC = () => {
   } = useForm({ resolver: yupResolver(EmployerRegistrationSchema) });
 
   const onSubmit = (data: FieldValues) => {
-    console.log(data);
+    navigation.navigate(pageNameInfo.Main.Employer, { screen: pageNameInfo.Employer.Auth.Terms });
   };
 
   return (
