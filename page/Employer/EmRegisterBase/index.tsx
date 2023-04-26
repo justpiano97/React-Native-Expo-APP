@@ -20,7 +20,7 @@ const EmployerRegisterBase: React.FC = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(EmployerRegistrationSchema) });
 
-  const onSubmit = (data: FieldValues) => {
+  const onSubmit = () => {
     navigation.navigate(pageNameInfo.Main.Employer, { screen: pageNameInfo.Employer.Auth.Terms });
   };
 
