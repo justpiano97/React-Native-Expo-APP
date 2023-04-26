@@ -9,9 +9,10 @@ type Props = {
   control: Control<FieldValues, any>;
   name: string;
   styles?: any;
+  error?: any;
 };
 
-const Select: React.FC<Props> = ({ list, control, name, styles = {} }) => {
+const Select: React.FC<Props> = ({ list, control, name, styles = {}, error }) => {
   return (
     <View style={{ ...styles }}>
       <Controller
@@ -27,7 +28,7 @@ const Select: React.FC<Props> = ({ list, control, name, styles = {} }) => {
             dropdownStyle={selectStyles.dropdownMenu}
             renderCustomizedButtonChild={(selectedItem) => (
               <View style={selectStyles.dropdownBtnChild}>
-                <Text style={selectStyles.dropdownBtnTxt}>
+                <Text style={selectedItem ? selectStyles.dropdownBtnTxt : selectStyles.dropdownBtnSelectTxt}>
                   {selectedItem ? selectedItem.label : 'Choose your Sector'}
                 </Text>
                 <FontAwesome name="chevron-down" color={'#ff85ff'} size={18} />
@@ -41,6 +42,11 @@ const Select: React.FC<Props> = ({ list, control, name, styles = {} }) => {
           />
         )}
       />
+      {error && (
+        <View style={{}}>
+          <Text style={selectStyles.errorText}>{error?.message}</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -67,12 +73,24 @@ const selectStyles = StyleSheet.create({
     fontSize: 18,
     width: '100%',
   },
+  dropdownBtnSelectTxt: {
+    color: '#a7a7a7',
+    textAlign: 'center',
+    fontSize: 18,
+    width: '100%',
+  },
   dropdownMenu: { backgroundColor: '#EFEFEF', marginTop: -62 },
   dropdownRowTxt: {
     color: '#444',
     textAlign: 'center',
     fontSize: 18,
     width: '100%',
+  },
+  errorText: {
+    color: 'white',
+    fontSize: 16,
+    paddingStart: 8,
+    paddingTop: 2,
   },
 });
 

@@ -8,8 +8,9 @@ import Button from '../../../components/_ui/Button';
 import Input from '../../../components/_ui/Input';
 import { EmployerRegistrationSchema } from '../../../utils/schema';
 import { MainStackParamsList } from '../../../navigation';
-import { employerRegisterList } from '../../../utils/constants/users';
+import { employerRegisterList, sectorList } from '../../../utils/constants/users';
 import { pageNameInfo } from '../../../utils/constants';
+import Select from '../../../components/_ui/Select';
 
 const EmployerRegisterBase: React.FC = () => {
   const navigation = useNavigation<MainStackParamsList>();
@@ -33,19 +34,21 @@ const EmployerRegisterBase: React.FC = () => {
           paddingHorizontal: 30,
         }}
       >
-        <View style={styles.inputWrapper}>
-          <Input placeholder="Choose Your Sector" control={control} name="sector" error={errors.sector} />
-          {employerRegisterList?.map((item) => (
-            <Input
-              key={item?.label}
-              placeholder={item.label}
-              name={item.name}
-              control={control}
-              error={errors[item?.name]}
-            />
-          ))}
+        <View>
+          <View style={styles.inputWrapper}>
+            <Select control={control} name="sector" list={sectorList} error={errors.sector} />
+            {employerRegisterList?.map((item) => (
+              <Input
+                key={item?.label}
+                placeholder={item.label}
+                name={item.name}
+                control={control}
+                error={errors[item?.name]}
+              />
+            ))}
+          </View>
+          <Button onPress={handleSubmit(onSubmit)}>Continue</Button>
         </View>
-        <Button onPress={handleSubmit(onSubmit)}>Continue</Button>
       </ScrollView>
     </View>
   );
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 10,
+    gap: 19,
     paddingBottom: 30,
   },
 });
