@@ -17,16 +17,12 @@ const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
   const { handleSubmit, control } = useForm();
 
   const [image, setImage] = useState<string>();
-  console.log('image: ', image);
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       quality: 1,
     });
-
-    console.log(result);
-
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
