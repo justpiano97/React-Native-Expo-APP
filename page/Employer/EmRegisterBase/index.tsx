@@ -4,11 +4,11 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
 
-import Input from '../../../components/_ui/Input';
 import Button from '../../../components/_ui/Button';
-import { employerRegisterList } from '../../../utils/constants/employer';
+import Input from '../../../components/_ui/Input';
 import { EmployerRegistrationSchema } from '../../../utils/schema';
 import { MainStackParamsList } from '../../../navigation';
+import { employerRegisterList } from '../../../utils/constants/users';
 import { pageNameInfo } from '../../../utils/constants';
 
 const EmployerRegisterBase: React.FC = () => {

@@ -4,12 +4,12 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import Input from '../../../components/_ui/Input';
-import { shiftSeekerRegisterList } from '../../../utils/constants/shiftseeker';
 import Button from '../../../components/_ui/Button';
-import { ShiftRegistrationSchema } from '../../../utils/schema';
+import Input from '../../../components/_ui/Input';
 import { MainStackParamsList } from '../../../navigation';
+import { ShiftRegistrationSchema } from '../../../utils/schema';
 import { pageNameInfo } from '../../../utils/constants';
+import { shiftSeekerRegisterList } from '../../../utils/constants/users';
 
 const ShiftSeekerRegisterBase: React.FC = () => {
   const navigation = useNavigation<MainStackParamsList>();

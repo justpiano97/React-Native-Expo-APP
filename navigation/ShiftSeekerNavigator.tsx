@@ -13,7 +13,7 @@ const ShiftSeekerNavigator = () => {
   return (
     <MainLayout>
       <ShiftStack.Navigator
-        initialRouteName={pageNameInfo.ShiftSeeker.Auth.RegisterProfile}
+        initialRouteName={pageNameInfo.ShiftSeeker.Auth.RegisterComplete}
         screenOptions={{
           headerShown: false,
         }}
