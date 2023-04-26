@@ -7,9 +7,10 @@ type Props = {
   control: Control<FieldValues, any>;
   name: string;
   error?: any;
+  multiline?: boolean;
 };
 
-const Input: React.FC<Props> = ({ placeholder, control, name, error }) => {
+const Input: React.FC<Props> = ({ placeholder, control, name, error, multiline = false }) => {
   return (
     <View>
       <Controller
@@ -17,12 +18,13 @@ const Input: React.FC<Props> = ({ placeholder, control, name, error }) => {
         name={name}
         render={({ field: { onChange, value } }) => (
           <TextInput
-            style={styles.input}
+            style={[styles.input, multiline && styles.multiple]}
             placeholder={placeholder}
             onChangeText={(val) => {
               onChange(val);
             }}
             value={value}
+            multiline={multiline}
           />
         )}
       />
@@ -45,6 +47,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     textAlign: 'center',
     paddingVertical: 8,
+    paddingHorizontal: 8,
+  },
+  multiple: {
+    minHeight: 100,
   },
   errorText: {
     color: 'white',

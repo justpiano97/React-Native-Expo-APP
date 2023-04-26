@@ -35,8 +35,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#3f3f3f',
     paddingHorizontal: 30,
-    paddingBottom: 30,
-    paddingTop: 30,
+    paddingTop: 15,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 18,

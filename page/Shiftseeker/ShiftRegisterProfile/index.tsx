@@ -4,15 +4,20 @@ import { FieldValues, useForm } from 'react-hook-form';
 
 import Input from '../../../components/_ui/Input';
 import Button from '../../../components/_ui/Button';
+import { pageNameInfo } from '../../../utils/constants';
 
-const ShiftSeekerRegisterProfile: React.FC = () => {
+type Props = {
+  navigation: any;
+};
+
+const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
   const { handleSubmit, control } = useForm();
 
   const onSubmit = (data: FieldValues) => {
-    console.log('data: ', data);
+    navigation.navigate(pageNameInfo.Main.ShiftSeeker, { screen: pageNameInfo.ShiftSeeker.Auth.RegisterComplete });
   };
   return (
-    <ScrollView style={{ height: '100%', paddingBottom: 30, backgroundColor: '#3f3f3f' }}>
+    <ScrollView style={{ height: '100%', backgroundColor: '#3f3f3f' }}>
       <View style={styles.wrapper}>
         <View style={styles.uploadWrapper}>
           <View style={styles.upload}>
@@ -31,11 +36,12 @@ const ShiftSeekerRegisterProfile: React.FC = () => {
           <View style={{ flex: 1, paddingStart: 20 }}>
             <Text style={styles.text}>
               We need this information to verify your profile and so that an employer knows who is turing up and can pay
-              you!.
+              you!
             </Text>
           </View>
         </View>
         <Input control={control} name="crb_number" placeholder="CRM Number (Optional)" />
+        <Input control={control} name="bio" placeholder="Shot Bio" multiline />
         <Button addStyles={{ marginTop: 15 }} onPress={handleSubmit(onSubmit)}>
           Continue
         </Button>
@@ -49,16 +55,16 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 30,
     paddingTop: 10,
+    gap: 10,
   },
   uploadWrapper: {
     display: 'flex',
     flexDirection: 'row',
-    paddingBottom: 10,
   },
   upload: {
     backgroundColor: 'white',
-    height: 180,
-    width: 180,
+    height: 160,
+    width: 160,
     borderStyle: 'solid',
     borderWidth: 2,
     borderColor: '#ff85ff',
