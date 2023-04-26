@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Checkbox from 'expo-checkbox';
-import { useForm, Controller, FieldValues } from 'react-hook-form';
+import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import Button from '../../../components/_ui/Button';
 import Select from '../../../components/_ui/Select';
 import { ShiftRegistrationCompleteSchema } from '../../../utils/schema';
 import { sectorList, shiftExperienceList } from '../../../utils/constants/users';
+import CheckBox from '../../../components/_ui/Checkbox';
 
 const ShiftSeekerRegisterComplete: React.FC = () => {
   const {
@@ -66,21 +66,7 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
         <View style={{ gap: 18, paddingTop: 20 }}>
           <Select control={control} list={sectorList} name="sector" error={errors.sector} />
           {shiftExperienceList?.map((item) => (
-            <View key={item.name} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Controller
-                control={control}
-                name={item.name}
-                render={({ field: { onChange, value = false } }) => (
-                  <Checkbox
-                    style={styles.checkbox}
-                    value={value}
-                    onValueChange={onChange}
-                    color={value ? '#ff85ff' : '#ff85ff'}
-                  />
-                )}
-              />
-              <Text style={styles.checkText}>{item.label}</Text>
-            </View>
+            <CheckBox key={item.name} control={control} name={item.name} label={item.label} />
           ))}
         </View>
         <Button styles={{ marginTop: 10 }} onPress={handleSubmit(onSubmit)}>
@@ -102,16 +88,6 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingHorizontal: 20,
     lineHeight: 24,
-  },
-  checkbox: {
-    height: 30,
-    width: 30,
-    borderWidth: 3,
-  },
-  checkText: {
-    fontSize: 22,
-    color: 'white',
-    paddingLeft: 10,
   },
 });
 
