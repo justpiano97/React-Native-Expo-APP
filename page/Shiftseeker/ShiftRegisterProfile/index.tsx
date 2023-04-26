@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { FieldValues, useForm } from 'react-hook-form';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Input from '../../../components/_ui/Input';
 import Button from '../../../components/_ui/Button';
@@ -21,6 +23,7 @@ const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
       <View style={styles.wrapper}>
         <View style={styles.uploadWrapper}>
           <View style={styles.upload}>
+            <Feather name="user" color={'#3f3f3f'} size={70} />
             <Text style={{ fontSize: 16, textAlign: 'center' }}>Upload Headshot</Text>
           </View>
           <View style={{ flex: 1, paddingStart: 20 }}>
@@ -31,6 +34,7 @@ const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
         </View>
         <View style={styles.uploadWrapper}>
           <View style={styles.upload}>
+            <Ionicons name="cloud-upload-outline" color={'#3f3f3f'} size={70} />
             <Text style={{ fontSize: 16, textAlign: 'center' }}>Upload ID Passport or Visa</Text>
           </View>
           <View style={{ flex: 1, paddingStart: 20 }}>
@@ -69,7 +73,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#ff85ff',
     borderRadius: 24,
-    padding: 10,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
   },
   text: {
     paddingTop: 10,

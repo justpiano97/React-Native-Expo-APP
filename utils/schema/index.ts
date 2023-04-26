@@ -21,3 +21,7 @@ export const EmployerRegistrationSchema = yup.object().shape({
   email: yup.string().required('Email is required field').email('Invalid Email'),
   password: yup.string().required('Password is required field'),
 });
+
+export const ShiftRegistrationCompleteSchema = yup.object().shape({
+  sector: yup.string().required('Sector is required field'),
+});

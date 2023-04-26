@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Checkbox from 'expo-checkbox';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, FieldValues } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import Button from '../../../components/_ui/Button';
 import Select from '../../../components/_ui/Select';
 import { sectorList } from '../../../utils/constants/users';
+import { ShiftRegistrationCompleteSchema } from '../../../utils/schema';
 
-const checkBoxList = [
+const experienceList = [
   { label: 'Glass Collecting', name: 'glassCollecting' },
   { label: 'Waiting Staff', name: 'waitingStaff' },
   { label: 'Bartender', name: 'bartender' },
@@ -18,8 +20,22 @@ const checkBoxList = [
 ];
 
 const ShiftSeekerRegisterComplete: React.FC = () => {
-  const { control, setValue, watch } = useForm();
+  const {
+    control,
+    setValue,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(ShiftRegistrationCompleteSchema) });
   const watchField = watch();
+
+  const onSubmit = (data: FieldValues) => {
+    let requestData: { [key: string]: any } = {};
+    const checkData = Object.keys(data)?.filter((item) => data[item] === true && item !== 'noExperience');
+    requestData.sector = data.sector;
+    requestData.experience = checkData;
+    console.log('requestData: ', requestData);
+  };
 
   useEffect(() => {
     if (watchField.noExperience) {
@@ -58,9 +74,9 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
     <View style={styles.wrapper}>
       <Text style={styles.text}>Select the type of work you are looking for and have experience of:</Text>
       <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
-        <View style={{ gap: 20, paddingTop: 20 }}>
-          <Select control={control} list={sectorList} name="sector" />
-          {checkBoxList?.map((item) => (
+        <View style={{ gap: 18, paddingTop: 20 }}>
+          <Select control={control} list={sectorList} name="sector" error={errors.sector} />
+          {experienceList?.map((item) => (
             <View key={item.name} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <Controller
                 control={control}
@@ -78,7 +94,9 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
             </View>
           ))}
         </View>
-        <Button styles={{ marginTop: 10 }}>Submit</Button>
+        <Button styles={{ marginTop: 10 }} onPress={handleSubmit(onSubmit)}>
+          Submit
+        </Button>
       </View>
     </View>
   );
@@ -97,8 +115,8 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   checkbox: {
-    height: 35,
-    width: 35,
+    height: 30,
+    width: 30,
     borderWidth: 3,
   },
   checkText: {
