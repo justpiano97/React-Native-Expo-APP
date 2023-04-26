@@ -6,7 +6,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../page/Home';
 import { pageNameInfo } from '../utils/constants';
 import ShiftSeekerNavigator from './ShiftSeekerNavigator';
-import EmRegisterBase from '../page/Employer/EmRegisterBase';
 import EmployerNavigator from './EmployerNavigator';
 
 const MainStack = createNativeStackNavigator();
