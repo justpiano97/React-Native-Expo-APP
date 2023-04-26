@@ -42,7 +42,7 @@ const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
         </View>
         <Input control={control} name="crb_number" placeholder="CRM Number (Optional)" />
         <Input control={control} name="bio" placeholder="Shot Bio" multiline />
-        <Button addStyles={{ marginTop: 15 }} onPress={handleSubmit(onSubmit)}>
+        <Button styles={{ marginTop: 15 }} onPress={handleSubmit(onSubmit)}>
           Continue
         </Button>
       </View>

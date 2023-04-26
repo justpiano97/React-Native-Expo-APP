@@ -4,15 +4,15 @@ import { useForm } from 'react-hook-form';
 
 import Select from '../../../components/_ui/Select';
 import { sectorList } from '../../../utils/constants/users';
+import Button from '../../../components/_ui/Button';
 
 const ShiftSeekerRegisterComplete: React.FC = () => {
-  const { control, watch } = useForm();
-  const field = watch();
-  console.log(field);
+  const { control } = useForm();
   return (
     <View style={styles.wrapper}>
       <Text style={styles.text}>Select the type of work you are looking for and have experience of:</Text>
-      <Select control={control} list={sectorList} name="sector" />
+      <Select control={control} list={sectorList} name="sector" styles={{ paddingVertical: 10 }} />
+      <Button>Submit</Button>
     </View>
   );
 };

@@ -4,7 +4,7 @@ import { StyleSheet, Text } from 'react-native';
 
 type Props = {
   children: ReactNode;
-  addStyles?: any;
+  styles?: any;
   onPress?: Function;
   buttonSize?: 'large' | 'medium' | 'small';
   buttonStyles?: 'whiteButton' | 'pinkButton';
@@ -14,17 +14,17 @@ const Button: React.FC<Props> = ({
   children,
   buttonSize = 'medium',
   buttonStyles = 'pinkButton',
-  addStyles = {},
+  styles = {},
   onPress = () => {},
 }) => {
   return (
-    <TouchableOpacity style={[styles[buttonSize], styles[buttonStyles], { ...addStyles }]} onPress={() => onPress()}>
-      <Text style={[styles[`${buttonSize}Text`], styles[`${buttonStyles}Text`]]}>{children}</Text>
+    <TouchableOpacity style={[btnStyles[buttonSize], btnStyles[buttonStyles], { ...styles }]} onPress={() => onPress()}>
+      <Text style={[btnStyles[`${buttonSize}Text`], btnStyles[`${buttonStyles}Text`]]}>{children}</Text>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
+const btnStyles = StyleSheet.create({
   pinkButton: {
     backgroundColor: '#ff85ff',
     borderColor: 'white',

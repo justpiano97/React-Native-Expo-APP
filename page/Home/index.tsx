@@ -21,7 +21,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
         <Button
           buttonSize="large"
           onPress={() => navigation.navigate(pageNameInfo.Main.Employer)}
-          addStyles={{ marginTop: 15 }}
+          styles={{ marginTop: 15 }}
         >
           Login as a Employer
         </Button>
