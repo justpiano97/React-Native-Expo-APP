@@ -1,13 +1,41 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import Button from '../../../components/_ui/Button';
 import Select from '../../../components/_ui/Select';
 import { ShiftRegistrationCompleteSchema } from '../../../utils/schema';
-import { sectorList, shiftExperienceList } from '../../../utils/constants/users';
+import { sectorList } from '../../../utils/constants/users';
 import CheckBox from '../../../components/_ui/Checkbox';
+
+const shiftExperienceList = [
+  { label: 'Glass Collecting', name: 'glassCollecting' },
+  { label: 'Waiting Staff', name: 'waitingStaff' },
+  { label: 'Bartender', name: 'bartender' },
+  { label: 'Kitchen Staff', name: 'kitchenStaff' },
+  { label: 'Cocktail Waiter', name: 'cocktailWaiter' },
+  { label: 'Barista1', name: 'barista1' },
+  { label: 'Barista2', name: 'barista2' },
+  { label: 'Barista3', name: 'barista3' },
+  { label: 'Barista4', name: 'barista4' },
+  { label: 'Barista5', name: 'barista5' },
+  { label: 'Barista6', name: 'barista6' },
+];
+
+const dataArray = [
+  'glassCollecting',
+  'waitingStaff',
+  'bartender',
+  'kitchenStaff',
+  'cocktailWaiter',
+  'barista1',
+  'barista2',
+  'barista2',
+  'barista3',
+  'barista4',
+  'barista5',
+];
 
 const ShiftSeekerRegisterComplete: React.FC = () => {
   const {
@@ -24,52 +52,48 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
     const checkData = Object.keys(data)?.filter((item) => data[item] === true && item !== 'noExperience');
     requestData.sector = data.sector;
     requestData.experience = checkData;
+    console.log('requestData: ', requestData);
   };
 
   useEffect(() => {
     if (watchField.noExperience) {
-      setValue('glassCollecting', false);
-      setValue('waitingStaff', false);
-      setValue('kitchenStaff', false);
-      setValue('bartender', false);
-      setValue('cocktailWaiter', false);
-      setValue('barista', false);
+      dataArray.forEach((item) => {
+        setValue(item, false);
+      });
     }
   }, [watchField.noExperience]);
 
   useEffect(() => {
-    if (
-      watchField.glassCollecting ||
-      watchField.glassCollecting ||
-      watchField.bartender ||
-      watchField.kitchenStaff ||
-      watchField.cocktailWaiter ||
-      watchField.barista ||
-      watchField.barista
-    ) {
+    if (dataArray?.filter((item) => watchField[item] === true && item !== 'noExperience')?.length) {
       setValue('noExperience', false);
     }
-  }, [
-    watchField.glassCollecting,
-    watchField.glassCollecting,
-    watchField.bartender,
-    watchField.kitchenStaff,
-    watchField.cocktailWaiter,
-    watchField.barista,
-    watchField.barista,
-  ]);
+  }, [...dataArray.map((item) => watchField[item])]);
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.text}>Select the type of work you are looking for and have experience of:</Text>
-      <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
-        <View style={{ gap: 18, paddingTop: 20 }}>
-          <Select control={control} list={sectorList} name="sector" error={errors.sector} />
-          {shiftExperienceList?.map((item) => (
-            <CheckBox key={item.name} control={control} name={item.name} label={item.label} />
-          ))}
+      <View style={{ paddingHorizontal: 30 }}>
+        <Text style={styles.text}>Select the type of work you are looking for and have experience of:</Text>
+      </View>
+      <View
+        style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1, paddingTop: 20 }}
+      >
+        <Select
+          styles={{ paddingHorizontal: 30 }}
+          control={control}
+          list={sectorList}
+          name="sector"
+          error={errors.sector}
+        />
+        <View style={{ paddingVertical: 20 }}>
+          <ScrollView style={{ height: '75%' }}>
+            <View style={{ gap: 20, paddingHorizontal: 30 }}>
+              {[...shiftExperienceList, { label: 'No Experience', name: 'noExperience' }]?.map((item) => (
+                <CheckBox key={item.name} control={control} name={item.name} label={item.label} />
+              ))}
+            </View>
+          </ScrollView>
         </View>
-        <Button styles={{ marginTop: 10 }} onPress={handleSubmit(onSubmit)}>
+        <Button styles={{ paddingHorizontal: 30 }} onPress={handleSubmit(onSubmit)}>
           Submit
         </Button>
       </View>
@@ -81,7 +105,6 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#3f3f3f',
-    paddingHorizontal: 30,
   },
   text: {
     fontSize: 18,
