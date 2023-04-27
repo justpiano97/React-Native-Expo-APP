@@ -7,9 +7,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '../../../components/_ui/Button';
 import Input from '../../../components/_ui/Input';
 import { MainStackParamsList } from '../../../navigation';
+import { ScreenRouter } from '../../../navigation/config';
 import { ShiftRegistrationSchema } from '../../../utils/schema';
-import { pageNameInfo } from '../../../utils/constants';
 import { shiftSeekerRegisterList } from '../../../utils/constants/users';
+import { white } from '../../../utils/constants/color';
 
 const ShiftSeekerRegisterBase: React.FC = () => {
   const navigation = useNavigation<MainStackParamsList>();
@@ -21,11 +22,11 @@ const ShiftSeekerRegisterBase: React.FC = () => {
   } = useForm({ resolver: yupResolver(ShiftRegistrationSchema) });
 
   const onSubmit = () => {
-    navigation.navigate(pageNameInfo.Main.ShiftSeeker, { screen: pageNameInfo.ShiftSeeker.Auth.RegisterProfile });
+    navigation.navigate(ScreenRouter.Main.Shift, { screen: ScreenRouter.Shift.Auth.RegisterProfile });
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#3f3f3f' }}>
+    <View style={{ flex: 1, backgroundColor: white }}>
       <Text style={styles.title}>ShiftSeeker Registration</Text>
       <ScrollView style={{ paddingHorizontal: 30 }}>
         <View style={styles.inputWrapper}>
@@ -47,7 +48,7 @@ const ShiftSeekerRegisterBase: React.FC = () => {
 
 const styles = StyleSheet.create({
   title: {
-    color: 'white',
+    color: white,
     textAlign: 'center',
     fontSize: 18,
     paddingTop: 10,

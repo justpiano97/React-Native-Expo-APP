@@ -3,6 +3,8 @@ import Checkbox from 'expo-checkbox';
 import { View, Text, StyleSheet } from 'react-native';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 
+import { primary, white } from '../../../utils/constants/color';
+
 type Props = {
   control: Control<FieldValues, any>;
   name: string;
@@ -17,12 +19,7 @@ const CheckBox: React.FC<Props> = ({ control, name, label }) => {
         control={control}
         name={name}
         render={({ field: { onChange, value = false } }) => (
-          <Checkbox
-            style={styles.checkbox}
-            value={value}
-            onValueChange={onChange}
-            color={value ? '#ff85ff' : '#ff85ff'}
-          />
+          <Checkbox style={styles.checkbox} value={value} onValueChange={onChange} color={value ? primary : primary} />
         )}
       />
       <Text style={styles.checkText}>{label}</Text>
@@ -38,7 +35,7 @@ const styles = StyleSheet.create({
   },
   checkText: {
     fontSize: 22,
-    color: 'white',
+    color: white,
     paddingLeft: 10,
   },
 });

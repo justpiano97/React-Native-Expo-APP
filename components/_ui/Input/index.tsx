@@ -2,6 +2,8 @@ import React from 'react';
 import { TextInput, StyleSheet, View, Text } from 'react-native';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 
+import { dark, primary, white } from '../../../utils/constants/color';
+
 type Props = {
   placeholder?: string;
   control: Control<FieldValues, any>;
@@ -39,14 +41,14 @@ const Input: React.FC<Props> = ({ placeholder, control, name, error, multiline =
 
 const styles = StyleSheet.create({
   input: {
-    backgroundColor: 'white',
+    backgroundColor: white,
     fontSize: 18,
     borderStyle: 'solid',
     borderWidth: 3,
-    borderColor: '#ff85ff',
+    borderColor: primary,
     borderRadius: 8,
     textAlign: 'center',
-    color: '#3f3f3f',
+    color: dark,
     paddingVertical: 8,
     paddingHorizontal: 8,
   },
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     minHeight: 100,
   },
   errorText: {
-    color: 'white',
+    color: white,
     fontSize: 16,
     paddingStart: 8,
     paddingTop: 2,

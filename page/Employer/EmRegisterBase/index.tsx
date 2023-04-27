@@ -6,11 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../../components/_ui/Button';
 import Input from '../../../components/_ui/Input';
+import Select from '../../../components/_ui/Select';
 import { EmployerRegistrationSchema } from '../../../utils/schema';
 import { MainStackParamsList } from '../../../navigation';
+import { ScreenRouter } from '../../../navigation/config';
 import { employerRegisterList, sectorList } from '../../../utils/constants/users';
-import { pageNameInfo } from '../../../utils/constants';
-import Select from '../../../components/_ui/Select';
+import { white } from '../../../utils/constants/color';
 
 const EmployerRegisterBase: React.FC = () => {
   const navigation = useNavigation<MainStackParamsList>();
@@ -22,7 +23,7 @@ const EmployerRegisterBase: React.FC = () => {
   } = useForm({ resolver: yupResolver(EmployerRegistrationSchema) });
 
   const onSubmit = () => {
-    navigation.navigate(pageNameInfo.Main.Employer, { screen: pageNameInfo.Employer.Auth.Terms });
+    navigation.navigate(ScreenRouter.Main.Employer, { screen: ScreenRouter.Employer.Auth.Terms });
   };
 
   return (
@@ -56,7 +57,7 @@ const EmployerRegisterBase: React.FC = () => {
 
 const styles = StyleSheet.create({
   title: {
-    color: 'white',
+    color: white,
     textAlign: 'center',
     fontSize: 18,
     paddingTop: 10,

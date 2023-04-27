@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
-import { FieldValues, useForm } from 'react-hook-form';
+import * as ImagePicker from 'expo-image-picker';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import * as ImagePicker from 'expo-image-picker';
+import { FieldValues, useForm } from 'react-hook-form';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 
-import Input from '../../../components/_ui/Input';
 import Button from '../../../components/_ui/Button';
-import { pageNameInfo } from '../../../utils/constants';
+import Input from '../../../components/_ui/Input';
+import { ScreenRouter } from '../../../navigation/config';
+import { dark, primary, white } from '../../../utils/constants/color';
 
 type Props = {
   navigation: any;
@@ -30,10 +31,10 @@ const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
 
   const onSubmit = (data: FieldValues) => {
     console.log('data: ', data);
-    navigation.navigate(pageNameInfo.Main.ShiftSeeker, { screen: pageNameInfo.ShiftSeeker.Auth.RegisterComplete });
+    navigation.navigate(ScreenRouter.Main.Shift, { screen: ScreenRouter.Shift.Auth.RegisterComplete });
   };
   return (
-    <ScrollView style={{ height: '100%', backgroundColor: '#3f3f3f' }}>
+    <ScrollView style={{ height: '100%', backgroundColor: dark }}>
       <View style={styles.wrapper}>
         <View style={styles.uploadWrapper}>
           <TouchableOpacity style={styles.upload} onPress={() => pickImage()}>
@@ -41,7 +42,7 @@ const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
               <Image source={{ uri: image }} style={{ width: '100%', height: '100%' }} />
             ) : (
               <View style={styles.uploadBtn}>
-                <Feather name="user" color={'#3f3f3f'} size={70} />
+                <Feather name="user" color={dark} size={70} />
                 <Text style={{ fontSize: 16, textAlign: 'center' }}>Upload Headshot</Text>
               </View>
             )}
@@ -55,7 +56,7 @@ const ShiftSeekerRegisterProfile: React.FC<Props> = ({ navigation }) => {
         <View style={styles.uploadWrapper}>
           <View style={styles.upload}>
             <View style={styles.uploadBtn}>
-              <Ionicons name="cloud-upload-outline" color={'#3f3f3f'} size={70} />
+              <Ionicons name="cloud-upload-outline" color={dark} size={70} />
               <Text style={{ fontSize: 16, textAlign: 'center' }}>Upload ID Passport or Visa</Text>
             </View>
           </View>
@@ -88,12 +89,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   upload: {
-    backgroundColor: 'white',
+    backgroundColor: white,
     height: 160,
     width: 160,
     borderStyle: 'solid',
     borderWidth: 2,
-    borderColor: '#ff85ff',
+    borderColor: primary,
     borderRadius: 24,
     overflow: 'hidden',
   },
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
   },
   text: {
     paddingTop: 10,
-    color: 'white',
+    color: white,
     fontSize: 16,
   },
 });

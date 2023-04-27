@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text } from 'react-native';
 
+import { dark, primary, white } from '../../../utils/constants/color';
+
 type Props = {
   children: ReactNode;
   styles?: any;
@@ -26,12 +28,12 @@ const Button: React.FC<Props> = ({
 
 const btnStyles = StyleSheet.create({
   pinkButton: {
-    backgroundColor: '#ff85ff',
-    borderColor: 'white',
+    backgroundColor: primary,
+    borderColor: white,
   },
   whiteButton: {
-    backgroundColor: 'white',
-    borderColor: '#ff85ff',
+    backgroundColor: white,
+    borderColor: dark,
   },
   small: {
     paddingVertical: 4,
@@ -53,10 +55,10 @@ const btnStyles = StyleSheet.create({
     borderWidth: 3,
   },
   pinkButtonText: {
-    color: 'white',
+    color: white,
   },
   whiteButtonText: {
-    color: '#ff85ff',
+    color: primary,
   },
   smallText: {
     fontSize: 16,

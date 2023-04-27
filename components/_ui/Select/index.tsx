@@ -3,6 +3,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SelectDropdown from 'react-native-select-dropdown';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 import { View, Text, StyleSheet } from 'react-native';
+import { dark, primary, white, whiteGray } from '../../../utils/constants/color';
 
 type Props = {
   list: { [key: string]: string }[];
@@ -31,7 +32,7 @@ const Select: React.FC<Props> = ({ list, control, name, styles = {}, error }) =>
                 <Text style={selectedItem ? selectStyles.dropdownBtnTxt : selectStyles.dropdownBtnSelectTxt}>
                   {selectedItem ? selectedItem.label : 'Choose your Sector'}
                 </Text>
-                <FontAwesome name="chevron-down" color={'#ff85ff'} size={18} />
+                <FontAwesome name="chevron-down" color={primary} size={18} />
               </View>
             )}
             renderCustomizedRowChild={(item) => (
@@ -55,10 +56,10 @@ const selectStyles = StyleSheet.create({
   dropdownBtn: {
     width: '100%',
     height: 50,
-    backgroundColor: '#FFF',
+    backgroundColor: white,
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: '#ff85ff',
+    borderColor: primary,
   },
   dropdownBtnChild: {
     flex: 1,
@@ -68,26 +69,33 @@ const selectStyles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   dropdownBtnTxt: {
-    color: '#444',
+    color: dark,
     textAlign: 'center',
     fontSize: 18,
     width: '100%',
   },
   dropdownBtnSelectTxt: {
-    color: '#a7a7a7',
+    color: whiteGray,
     textAlign: 'center',
     fontSize: 18,
     width: '100%',
   },
-  dropdownMenu: { backgroundColor: '#EFEFEF', marginTop: -62 },
+  dropdownMenu: {
+    backgroundColor: white,
+    marginTop: -60,
+    borderColor: primary,
+    borderWidth: 2,
+    borderTopWidth: 2,
+    borderRadius: 8,
+  },
   dropdownRowTxt: {
-    color: '#444',
+    color: dark,
     textAlign: 'center',
     fontSize: 18,
     width: '100%',
   },
   errorText: {
-    color: 'white',
+    color: white,
     fontSize: 16,
     paddingStart: 8,
     paddingTop: 2,

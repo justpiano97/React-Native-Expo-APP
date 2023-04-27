@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+
 import Button from '../../../components/_ui/Button';
+import { dark, primary, white } from '../../../utils/constants/color';
 
 const Terms: React.FC = () => {
   return (
@@ -33,7 +35,7 @@ const Terms: React.FC = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#3f3f3f',
+    backgroundColor: dark,
     paddingHorizontal: 30,
     paddingTop: 15,
     display: 'flex',
@@ -42,21 +44,21 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    color: '#3f3f3f',
+    color: dark,
     marginBottom: 5,
   },
   description: {
     fontSize: 14,
-    color: '#3f3f3f',
+    color: dark,
     lineHeight: 18,
   },
   termsPanel: {
-    backgroundColor: 'white',
+    backgroundColor: white,
     paddingHorizontal: 20,
     paddingVertical: 40,
     borderStyle: 'solid',
     borderWidth: 2,
-    borderColor: '#ff85ff',
+    borderColor: primary,
     borderRadius: 12,
   },
 });

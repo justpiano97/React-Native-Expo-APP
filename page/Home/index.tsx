@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+
 import Button from '../../components/_ui/Button';
-import { pageNameInfo } from '../../utils/constants';
+import { ScreenRouter } from '../../navigation/config';
+import { dark, white } from '../../utils/constants/color';
 
 type Props = {
   navigation: any;
@@ -15,12 +17,12 @@ const Home: React.FC<Props> = ({ navigation }) => {
       </View>
       <Text style={styles.text}>Find Shift work to suit your lifestyle</Text>
       <View style={styles.buttonGroup}>
-        <Button buttonSize="large" onPress={() => navigation.navigate(pageNameInfo.Main.ShiftSeeker)}>
+        <Button buttonSize="large" onPress={() => navigation.navigate(ScreenRouter.Main.Shift)}>
           Login as a Shiftseeker
         </Button>
         <Button
           buttonSize="large"
-          onPress={() => navigation.navigate(pageNameInfo.Main.Employer)}
+          onPress={() => navigation.navigate(ScreenRouter.Main.Employer)}
           styles={{ marginTop: 15 }}
         >
           Login as a Employer
@@ -35,7 +37,7 @@ export default Home;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#3f3f3f',
+    backgroundColor: dark,
     paddingVertical: 50,
     paddingHorizontal: 60,
     marginHorizontal: 'auto',
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: 'white',
+    color: white,
     fontSize: 24,
     textAlign: 'center',
   },

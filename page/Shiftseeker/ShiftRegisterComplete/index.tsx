@@ -4,10 +4,11 @@ import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import Button from '../../../components/_ui/Button';
+import CheckBox from '../../../components/_ui/Checkbox';
 import Select from '../../../components/_ui/Select';
 import { ShiftRegistrationCompleteSchema } from '../../../utils/schema';
+import { dark } from '../../../utils/constants/color';
 import { sectorList } from '../../../utils/constants/users';
-import CheckBox from '../../../components/_ui/Checkbox';
 
 const shiftExperienceList = [
   { label: 'Glass Collecting', name: 'glassCollecting' },
@@ -104,7 +105,7 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#3f3f3f',
+    backgroundColor: dark,
   },
   text: {
     fontSize: 18,
