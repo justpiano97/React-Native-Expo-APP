@@ -85,7 +85,7 @@ const ShiftSeekerRegisterComplete: React.FC = () => {
           error={errors.sector}
         />
         <View style={{ paddingVertical: 20 }}>
-          <ScrollView style={{ height: '75%' }}>
+          <ScrollView style={{ height: '73%' }}>
             <View style={{ gap: 20, paddingHorizontal: 30 }}>
               {[...shiftExperienceList, { label: 'No Experience', name: 'noExperience' }]?.map((item) => (
                 <CheckBox key={item.name} control={control} name={item.name} label={item.label} />
