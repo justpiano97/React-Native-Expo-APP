@@ -10,7 +10,7 @@ const EmployerStack = createNativeStackNavigator();
 
 const EmployerStackNavigator = () => {
   return (
-    <MainLayout>
+    <MainLayout isEmployer>
       <EmployerStack.Navigator
         initialRouteName={ScreenRouter.Employer.Auth.RegisterBase}
         screenOptions={{

@@ -6,12 +6,13 @@ import { dark } from '../../utils/constants/color';
 
 type Props = {
   children: ReactNode;
+  isEmployer?: boolean;
 };
 
-const MainLayout: React.FC<Props> = ({ children }) => {
+const MainLayout: React.FC<Props> = ({ children, isEmployer }) => {
   return (
     <View style={{ height: '100%' }}>
-      <Header />
+      <Header isEmployer={isEmployer} />
       <View style={{ flex: 1, backgroundColor: dark, paddingBottom: 40 }}>{children}</View>
     </View>
   );

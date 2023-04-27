@@ -27,7 +27,11 @@ const shiftSignedMenu = [
   { label: 'My Profile', screen: '' },
 ];
 
-const Header: React.FC = () => {
+type Props = {
+  isEmployer?: boolean;
+};
+
+const Header: React.FC<Props> = ({ isEmployer = false }) => {
   const navigation = useNavigation<MainStackParamsList>();
   const insets = useSafeAreaInsets();
 
@@ -46,7 +50,7 @@ const Header: React.FC = () => {
           <Image source={require('../../assets/images/bar.png')} style={{ width: 40, height: 40 }} />
         </MenuTrigger>
         <MenuOptions customStyles={{ optionsWrapper: styles.optionsWrapper }}>
-          {employerSignedMenu?.map((item) => (
+          {(isEmployer ? employerSignedMenu : shiftSignedMenu)?.map((item) => (
             <Pressable
               key={item.label}
               onPress={() => {

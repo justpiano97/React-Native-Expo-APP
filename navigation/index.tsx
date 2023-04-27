@@ -26,8 +26,8 @@ const Router: React.FC = () => {
           }}
         >
           <MainStack.Screen name={ScreenRouter.Main.Home} component={Home} />
-          <MainStack.Screen name={ScreenRouter.Main.Shift} component={ShiftSeekerNavigator} />
           <MainStack.Screen name={ScreenRouter.Main.Employer} component={EmployerNavigator} />
+          <MainStack.Screen name={ScreenRouter.Main.Shift} component={ShiftSeekerNavigator} />
         </MainStack.Navigator>
       </NavigationContainer>
     </View>
